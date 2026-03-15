@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Developer Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background for header */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            border-bottom: 2px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating animation for header content */
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 10px auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        header p:last-of-type {
+            animation-delay: 0.4s;
+        }
+
+        /* Typing effect for the second paragraph (simulated with keyframes) */
+        .typing {
+            border-right: 2px solid #38bdf8;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+            animation-delay: 0.6s;
+            display: inline-block;
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #38bdf8; }
+        }
+
+        /* Sections base */
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #38bdf8;
+            border-radius: 2px;
+        }
+
+        /* Skills with staggered animation */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skills span {
+            background: #1e293b;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: popIn 0.5s ease-out forwards;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .skills span:hover {
+            transform: scale(1.05) translateY(-3px);
+            background: #2d3a4f;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Stagger delays for each skill */
+        .skills span:nth-child(1) { animation-delay: 0.1s; }
+        .skills span:nth-child(2) { animation-delay: 0.2s; }
+        .skills span:nth-child(3) { animation-delay: 0.3s; }
+        .skills span:nth-child(4) { animation-delay: 0.4s; }
+        .skills span:nth-child(5) { animation-delay: 0.5s; }
+        .skills span:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Projects grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #334155;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(0.2s * var(--i));
+        }
+
+        .project:nth-child(1) { --i: 1; }
+        .project:nth-child(2) { --i: 2; }
+        .project:nth-child(3) { --i: 3; }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+        }
+
+        .project h3 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+            font-size: 1.5rem;
+        }
+
+        .project p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        button {
+            background: #38bdf8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #0f172a;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(56, 189, 248, 0.4);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        
+    /* تعديل قسم Contact */
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px; /* مسافة بين عناصر الاتصال */
+    }
+
+    /* تنسيق موحد لعناصر الاتصال */
+    .contact-info, .contact-info2 {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 1.2rem;
+        background: #1e293b;
+        padding: 20px 30px;
+        border-radius: 50px;
+        width: fit-content;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+        margin: 0; /* إزالة أي هوامش افتراضية */
+    }
+
+    .contact-info:hover, .contact-info2:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+    }
+
+    .contact-info i, .contact-info2 i {
+        font-size: 2rem;
+        color: #38bdf8;
+    }
+
+    .contact-info a, .contact-info2 a {
+        color: #94a3b8;
+        transition: color 0.3s;
+    }
+
+    .contact-info a:hover, .contact-info2 a:hover {
+        color: #38bdf8;
+    }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+            margin-top: 40px;
+        }
+
+        /* Keyframes */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            .typing { white-space: normal; border-right: none; animation: none; width: auto; }
+            .contact-info { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ahmed Safwat</h1>
+        <p>Java Developer</p>
+        <p class="typing">Building scalable APIs using Java & Spring Boot</p>
+    </header>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>REST APIs</span>
+            <span>MySQL</span>
+            <span>JWT Authentication</span>
+            <span>Docker</span>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>HR SALARY SCALE</h3>
+                <p>Program For EG Salary Scale & Payroll Users</p>
+                <a href="https://github.com/safwat055/HR_Salary_UPDATER/releases/download/v1.0.46/HR_Salary_Scale.zip" target="_blank">
+                    <button><i class="fab fa-github"></i> Download App</button>
+                </a>
+            </div>
+            <div class="project">
+                <h3>E-commerce Backend</h3>
+                <p>Backend system for e-commerce with products, orders, and payment integration.</p>
+                <a href="https://github.com/safwat055/ecommerce-api" target="_blank">
+                    <button><i class="fab fa-github"></i> View Project</button>
+                </a>
+            </div>
+            <div class="project">
+                <h3>Blog API</h3>
+                <p>Backend for blog platform with users, posts, comments, and role-based access.</p>
+                <a href="https://github.com/safwat055/blog-api" target="_blank">
+                    <button><i class="fab fa-github"></i> View Project</button>
+                </a>
+            </div>
+        </div>
+    </section>
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/safwat055" target="_blank">github.com/safwat055</a>
+    </div>
+    <div class="contact-info2">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+201021816864">+20 102 181 6864</a>
+    </div>
+</section>
+
+    <footer>
+        <p>© 2026 Ahmed Safwat - Java Developer | <i class="fas fa-heart" style="color: #38bdf8;"></i> Passion for code</p>
+    </footer>
+
+    <!-- JavaScript for scroll animations -->
+    <script>
+        // Intersection Observer to reveal sections on scroll
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Fallback: make sections visible immediately if they are already in view
+        window.addEventListener('load', () => {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+
+        // Add a simple hover sound effect? (optional, disabled by default)
+        // You can enable if you want
+    </script>
+</body>
+</html>
