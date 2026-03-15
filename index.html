@@ -23,10 +23,10 @@
             overflow-x: hidden;
         }
 
-        /* Animated gradient background for header */
+        /* Animated gradient background for header - with reduced height */
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 60px 20px;  /* تقليل الارتفاع من 100px إلى 60px */
             background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -42,7 +42,7 @@
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;  /* تقليل حجم الخط قليلاً */
             margin-bottom: 10px;
             animation: fadeInUp 1s ease-out;
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -50,7 +50,7 @@
 
         header p {
             color: #94a3b8;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 10px auto;
             opacity: 0;
@@ -64,7 +64,7 @@
 
         /* Typing effect for the second paragraph */
         .typing {
-            border-left: 2px solid #38bdf8; /* تعديل ليتناسب مع RTL */
+            border-left: 2px solid #38bdf8;
             white-space: nowrap;
             overflow: hidden;
             width: 0;
@@ -112,7 +112,7 @@
             content: '';
             position: absolute;
             bottom: -10px;
-            right: 0; /* تعديل لـ RTL */
+            right: 0;
             width: 80px;
             height: 4px;
             background: #38bdf8;
@@ -305,6 +305,18 @@
             margin-top: 40px;
         }
 
+        /* Counter style inside footer */
+        .visit-counter {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .visit-counter img {
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Keyframes */
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(30px); }
@@ -313,14 +325,14 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
+            header h1 { font-size: 2.2rem; }
             h2 { font-size: 2.2rem; }
             .typing { white-space: normal; border-left: none; animation: none; width: auto; }
             .contact-card { flex-direction: column; text-align: center; padding: 15px 25px; }
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 2.2rem; }
+            header h1 { font-size: 1.8rem; }
             .project-buttons { flex-direction: column; }
             button { width: 100%; justify-content: center; }
         }
@@ -345,7 +357,7 @@
 
     <header>
         <h1>احمد صفوت</h1>
-        <p> (Java developer)</p>
+        <p>Java developer</p>
         <p class="typing">أبني واجهات برمجية قابلة للتطوير باستخدام Java و Spring Boot</p>
     </header>
 
@@ -416,7 +428,11 @@
     </section>
 
     <footer>
-        <p>© 2026 Ahmed Safwat Java developer| <i class="fas fa-heart" style="color: #38bdf8;"></i> more is comming</p>
+        <p>© 2026 Ahmed Safwat Java developer | <i class="fas fa-heart" style="color: #38bdf8;"></i> more is comming</p>
+        <!-- Flag Counter (مجاني وأنيق) -->
+        <div class="visit-counter">
+            <a href="https://info.flagcounter.com/Fgbc"><img src="https://s01.flagcounter.com/count/Fgbc/bg=020617/txt=FFFFFF/border=CCCCCC/columns=3/maxflags=3/viewers=0/labels=0/" alt="Free counters!" border="0"></a>
+        </div>
     </footer>
 
     <!-- JavaScript for scroll animations -->
