@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ahmed safwat</title>
+    <title>Ahmed Safwat Java Developer</title>
+    <meta name="description" content="أحمد صفوت، مطور Java محترف متخصص في Spring Boot، Microservices، وبناء REST APIs. أقدم حلول برمجية قابلة للتطوير.">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts - Tajawal (Arabic friendly) -->
@@ -23,16 +24,35 @@
             overflow-x: hidden;
         }
 
-        /* Animated gradient background for header - with reduced height */
+        /* =============== HEADER =============== */
         header {
             text-align: center;
-            padding: 60px 20px;  /* تقليل الارتفاع من 100px إلى 60px */
-            background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+            padding: 80px 20px 60px;
+            background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #0f172a);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             border-bottom: 2px solid #334155;
             position: relative;
             overflow: hidden;
+        }
+
+        /* Floating particles effect */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
+            animation: floatParticles 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatParticles {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
         @keyframes gradientBG {
@@ -41,38 +61,72 @@
             100% { background-position: 0% 50%; }
         }
 
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Profile Image */
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
+            transition: transform 0.3s;
+            border: 3px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .profile-icon:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
         header h1 {
-            font-size: 2.8rem;  /* تقليل حجم الخط قليلاً */
+            font-size: 3.2rem;
             margin-bottom: 10px;
             animation: fadeInUp 1s ease-out;
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        header p {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 10px auto;
+        header .subtitle {
+            color: #38bdf8;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             opacity: 0;
             animation: fadeInUp 1s ease-out forwards;
             animation-delay: 0.2s;
+            font-weight: 500;
         }
 
-        header p:last-of-type {
-            animation-delay: 0.4s;
-        }
-
-        /* Typing effect for the second paragraph */
-        .typing {
-            border-left: 2px solid #38bdf8;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
-            animation-delay: 0.6s;
+        .typing-container {
             display: inline-block;
             max-width: fit-content;
             margin: 0 auto;
+        }
+
+        /* ====== التعديل هنا: الكتابة تبدأ من اليسار ====== */
+        .typing {
+            border-right: 2px solid #38bdf8;  /* تغيير من border-left إلى border-right */
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+            animation-delay: 0.6s;
+            display: inline-block;
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            padding-right: 5px;  /* تغيير من padding-left إلى padding-right */
+            direction: ltr;  /* إجبار النص على الاتجاه من اليسار لليمين */
         }
 
         @keyframes typing {
@@ -85,7 +139,45 @@
             50% { border-color: #38bdf8; }
         }
 
-        /* Sections base */
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .stat-item {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid #334155;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .stat-item i {
+            color: #38bdf8;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+
+        .stat-item span {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* =============== SECTIONS =============== */
         section {
             padding: 70px 20px;
             max-width: 1200px;
@@ -115,11 +207,11 @@
             right: 0;
             width: 80px;
             height: 4px;
-            background: #38bdf8;
+            background: linear-gradient(to right, #38bdf8, #0ea5e9);
             border-radius: 2px;
         }
 
-        /* Skills with staggered animation */
+        /* =============== SKILLS =============== */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -149,20 +241,31 @@
             border-color: #38bdf8;
         }
 
-        /* Stagger delays for each skill */
-        .skills span:nth-child(1) { animation-delay: 0.1s; }
-        .skills span:nth-child(2) { animation-delay: 0.2s; }
-        .skills span:nth-child(3) { animation-delay: 0.3s; }
-        .skills span:nth-child(4) { animation-delay: 0.4s; }
-        .skills span:nth-child(5) { animation-delay: 0.5s; }
-        .skills span:nth-child(6) { animation-delay: 0.6s; }
+        .skills span:nth-child(1) { animation-delay: 0.05s; }
+        .skills span:nth-child(2) { animation-delay: 0.10s; }
+        .skills span:nth-child(3) { animation-delay: 0.15s; }
+        .skills span:nth-child(4) { animation-delay: 0.20s; }
+        .skills span:nth-child(5) { animation-delay: 0.25s; }
+        .skills span:nth-child(6) { animation-delay: 0.30s; }
+        .skills span:nth-child(7) { animation-delay: 0.35s; }
+        .skills span:nth-child(8) { animation-delay: 0.40s; }
+
+        .skills span .badge {
+            background: #38bdf8;
+            color: #0f172a;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-right: 8px;
+            font-weight: 700;
+        }
 
         @keyframes popIn {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Projects grid */
+        /* =============== PROJECTS =============== */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -180,7 +283,7 @@
             border: 1px solid #334155;
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
-            animation-delay: calc(0.2s * var(--i));
+            animation-delay: calc(0.15s * var(--i));
             display: flex;
             flex-direction: column;
         }
@@ -188,11 +291,18 @@
         .project:nth-child(1) { --i: 1; }
         .project:nth-child(2) { --i: 2; }
         .project:nth-child(3) { --i: 3; }
+        .project:nth-child(4) { --i: 4; }
 
         .project:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 40px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 30px 40px rgba(56, 189, 248, 0.25);
             border-color: #38bdf8;
+        }
+
+        .project .project-icon {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 15px;
         }
 
         .project h3 {
@@ -208,7 +318,22 @@
             flex-grow: 1;
         }
 
-        /* Buttons container */
+        .project .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project .tech-tags span {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
         .project-buttons {
             display: flex;
             gap: 10px;
@@ -239,12 +364,23 @@
             box-shadow: 0 8px 12px rgba(56, 189, 248, 0.4);
         }
 
+        button.outline {
+            background: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        button.outline:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
         a {
             text-decoration: none;
             color: white;
         }
 
-        /* Contact Section */
+        /* =============== CONTACT =============== */
         #contact {
             display: flex;
             flex-direction: column;
@@ -276,7 +412,7 @@
         }
 
         .contact-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-5px);
             box-shadow: 0 15px 30px rgba(56, 189, 248, 0.3);
             border-color: #38bdf8;
         }
@@ -295,7 +431,7 @@
             color: #38bdf8;
         }
 
-        /* Footer */
+        /* =============== FOOTER =============== */
         footer {
             text-align: center;
             padding: 30px;
@@ -305,39 +441,52 @@
             margin-top: 40px;
         }
 
-        /* Counter style inside footer */
-        .visit-counter {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-        }
-        .visit-counter img {
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
+        footer .heart {
+            color: #38bdf8;
+            animation: pulse 1.5s ease infinite;
+            display: inline-block;
         }
 
-        /* Keyframes */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* =============== KEYFRAMES =============== */
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
+        /* =============== RESPONSIVE =============== */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
+            header { padding: 60px 20px 40px; }
+            header h1 { font-size: 2.4rem; }
+            .profile-icon { width: 90px; height: 90px; font-size: 3rem; }
             h2 { font-size: 2.2rem; }
-            .typing { white-space: normal; border-left: none; animation: none; width: auto; }
-            .contact-card { flex-direction: column; text-align: center; padding: 15px 25px; }
+            .typing {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                width: auto;
+                display: block;
+                padding-right: 0;
+                direction: rtl;  /* على الموبايل يرجع للاتجاه الطبيعي */
+            }
+            .stats-bar { gap: 15px; }
+            .stat-item { padding: 10px 20px; font-size: 0.9rem; }
+            .contact-card { flex-direction: row; padding: 15px 25px; }
         }
 
         @media (max-width: 480px) {
             header h1 { font-size: 1.8rem; }
+            .header-content .subtitle { font-size: 1rem; }
             .project-buttons { flex-direction: column; }
             button { width: 100%; justify-content: center; }
+            .stats-bar { flex-direction: column; align-items: center; }
         }
 
-        /* Custom scrollbar */
+        /* =============== SCROLLBAR =============== */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -355,111 +504,207 @@
 </head>
 <body>
 
-    <header>
-        <h1>Ahmed Safwat</h1>
-        <p>Java developer</p>
-        <p class="typing">أبني واجهات برمجية قابلة للتطوير باستخدام Java و Spring Boot</p>
-    </header>
-
-    <section id="skills">
-        <h2>المهارات</h2>
-        <div class="skills">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>REST APIs</span>
-            <span>MySQL</span>
-            <span>JWT Authentication</span>
-            <span>Docker</span>
+<!-- ========== HEADER (بعد التعديل) ========== -->
+<header>
+    <div class="header-content">
+        <div class="profile-icon">
+            <i class="fas fa-code"></i>
         </div>
-    </section>
+        <h1>ahmed safwat</h1>
+        <p class="subtitle">
+            <i class="fas fa-crown" style="color: #fbbf24; margin-left: 8px;"></i>
+            Java Developer | Spring Boot & Microservices
+        </p>
+        <div class="typing-container">
+            <p class="typing">Free Systems Spring Boot</p>
+        </div>
 
-    <section id="projects">
-        <h2>المشاريع</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>HR SALARY SCALE</h3>
-                <p>برنامج تدرج الرواتب ومساعدة مستخدمي payroll في النظام المصري. يتيح تحميل وتحديث بيانات الرواتب بسهولة.</p>
-                <div class="project-buttons">
-                    <a href="https://github.com/safwat055/HR_Salary_UPDATER/releases/download/v1.0.46/HR_Salary_Scale.zip" target="_blank">
-                        <button><i class="fab fa-github"></i> تحميل التطبيق</button>
-                    </a>
-                    <a href="https://github.com/safwat055/HR_Salary_UPDATER" target="_blank">
-                        <button><i class="fab fa-github"></i> الكود المصدري</button>
-                    </a>
-                </div>
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-briefcase"></i>
+                <span>+5 سنوات خبرة</span>
             </div>
-            <div class="project">
-                <h3>شروحات التطبيق</h3>
-                <p>قائمة فيديوهات شرح لكيفية استخدام تطبيق HR Salary Scale بالتفصيل.</p>
-                <div class="project-buttons">
-                    <a href="https://www.youtube.com/watch?v=qdIyvBPesjg&list=PLBpXZP4NJWAbM39RvKzddVfV42SCpTOt5" target="_blank">
-                        <button><i class="fab fa-youtube"></i> مشاهدة القائمة</button>
-                    </a>
-                </div>
+            <div class="stat-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>10+ مشاريع</span>
             </div>
-            <div class="project">
-                <h3>Blog API</h3>
-                <p>نظام خلفي لمنصة تدوين مع إدارة المستخدمين والمقالات والتعليقات، مبني باستخدام Spring Boot و JWT.</p>
-                <div class="project-buttons">
-                    <a href="https://github.com/safwat055/blog-api" target="_blank">
-                        <button><i class="fab fa-github"></i> عرض المشروع</button>
-                    </a>
-                </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>عمل مستقل</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-rocket"></i>
+                <span>جاهز للعمل</span>
             </div>
         </div>
-    </section>
+    </div>
+</header>
 
-    <section id="contact">
-        <h2>تواصل معي</h2>
-        <div class="contact-cards">
-            <div class="contact-card">
-                <i class="fab fa-github"></i>
-                <a href="https://github.com/safwat055" target="_blank">safwat055</a>
+<!-- ========== SKILLS ========== -->
+<section id="skills">
+    <h2>المهارات</h2>
+    <div class="skills">
+        <span>Java</span>
+        <span>Java FX</span>
+        <span>Spring Boot</span>
+        <span>Microservices </span>
+        <span>REST APIs</span>
+        <span>JasperReports </span>
+        <span>MySQL</span>
+        <span>PostgresSQL</span>
+        <span>JWT Authentication</span>
+        <span>Docker</span>
+    </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section id="projects">
+    <h2>المشاريع</h2>
+    <div class="projects">
+
+        <!-- Project 1: HR Salary Scale -->
+        <div class="project">
+            <div class="project-icon"><i class="fas fa-coins"></i></div>
+            <h3>HR Salary Scale</h3>
+            <p>برنامج تدرج الرواتب ومساعدة مستخدمي payroll في النظام المصري. يتيح تحميل وتحديث بيانات الرواتب بسهولة.</p>
+            <div class="tech-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>JasperReports</span>
+                <span>MySQL</span>
             </div>
-            <div class="contact-card">
-                <i class="fas fa-phone-alt"></i>
-                <a href="tel:+201021816864">+20 102 181 6864</a>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/201021816864" target="_blank">واتساب</a>
+            <div class="project-buttons">
+                <a href="https://github.com/safwat055/HR_Salary_UPDATER/releases/download/v1.0.46/HR_Salary_Scale.zip" target="_blank">
+                    <button><i class="fas fa-download"></i> تحميل</button>
+                </a>
+                <a href="https://github.com/safwat055/HR_Salary_UPDATER" target="_blank">
+                    <button class="outline"><i class="fab fa-github"></i> الكود</button>
+                </a>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 Ahmed Safwat Java developer | <i class="fas fa-heart" style="color: #38bdf8;"></i> more is comming</p>
-        <!-- Flag Counter (مجاني وأنيق) -->
-        <div class="visit-counter">
-    <a href="https://info.flagcounter.com/1ST1">
-    <img src="https://s01.flagcounter.com/count/1ST1/bg=020617/txt=FFFFFF/border=CCCCCC/columns=3/maxflags=3/viewers=0/labels=0/pageviews=1/" alt="Flag Counter" border="0">
-</a>
-</div>
-    </footer>
+        <!-- Project 2: Archive Manager (NEW) -->
+        <div class="project">
+            <div class="project-icon"><i class="fas fa-archive"></i></div>
+            <h3>Archive Manager</h3>
+            <p>نظام متكامل لإدارة وحفظ الملفات والأرشيفات الرقمية، مع دعم البحث والتصنيف والاسترجاع السريع.</p>
+            <div class="tech-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Microservices</span>
+                <span>Docker</span>
+                <span>PostgresSQL</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/safwat055/archive-manager" target="_blank">
+                    <button><i class="fab fa-github"></i> عرض المشروع</button>
+                </a>
+                <a href="#" target="_blank">
+                    <button class="outline"><i class="fas fa-play"></i>تحميل</button>
+                </a>
+            </div>
+        </div>
 
-    <!-- JavaScript for scroll animations -->
-    <script>
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+        <!-- Project 3: YouTube Tutorials -->
+        <div class="project">
+            <div class="project-icon"><i class="fab fa-youtube"></i></div>
+            <h3>شروحات التطبيق</h3>
+            <p>قائمة فيديوهات شرح لكيفية استخدام تطبيق HR Salary Scale بالتفصيل، من التثبيت حتى الاحتراف.</p>
+            <div class="tech-tags">
+                <span>شرح عربي</span>
+                <span>تطبيق عملي</span>
+                <span>حالات واقعية</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://www.youtube.com/watch?v=qdIyvBPesjg&list=PLBpXZP4NJWAbM39RvKzddVfV42SCpTOt5" target="_blank">
+                    <button><i class="fab fa-youtube"></i> مشاهدة القائمة</button>
+                </a>
+            </div>
+        </div>
 
+        <!-- Project 4: Blog API -->
+        <div class="project">
+            <div class="project-icon"><i class="fas fa-blog"></i></div>
+            <h3>Blog API</h3>
+            <p>نظام خلفي لمنصة تدوين مع إدارة المستخدمين والمقالات والتعليقات، مبني باستخدام Spring Boot و JWT.</p>
+            <div class="tech-tags">
+                <span>Spring Boot</span>
+                <span>JWT</span>
+                <span>REST API</span>
+                <span>MySQL</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/safwat055/blog-api" target="_blank">
+                    <button><i class="fab fa-github"></i> عرض المشروع</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+    <h2>تواصل معي</h2>
+    <div class="contact-cards">
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:ahmed.safwat444@gmail.com">ahmed.safwat444@gmail.com</a>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/safwat055" target="_blank">safwat055</a>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+201021816864">+20 102 181 6864</a>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/201021816864" target="_blank">واتساب</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <p>
+        © 2026 أحمد صفوت
+        <span class="heart"><i class="fas fa-heart"></i></span>
+        Java Developer | Spring Boot &amp; Microservices
+    </p>
+    <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
+        <i class="fas fa-code"></i> بناء أنظمة قابلة للتطوير
+    </p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+    // Scroll Animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Trigger visibility for sections already in view on load
+    window.addEventListener('load', () => {
         sections.forEach(section => {
-            observer.observe(section);
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                section.classList.add('visible');
+            }
         });
+    });
+</script>
 
-        window.addEventListener('load', () => {
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    section.classList.add('visible');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
