@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Safwat Java Developer</title>
-    <meta name="description" content="أحمد صفوت، مطور Java محترف متخصص في Spring Boot، Microservices، وبناء REST APIs. أقدم حلول برمجية قابلة للتطوير.">
+    <title>أحمد صفوت - Java Developer | Spring Boot Specialist</title>
+    <meta name="description" content="أحمد صفوت، مطور Java محترف ومتخصص في Spring Boot، تطبيقات سطح المكتب والخلفيات. أقدم حلول برمجية قابلة للتطوير.">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Tajawal (Arabic friendly) -->
+    <!-- Google Fonts - Tajawal -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -36,7 +36,6 @@
             overflow: hidden;
         }
 
-        /* Floating particles effect */
         header::before {
             content: '';
             position: absolute;
@@ -66,7 +65,6 @@
             z-index: 1;
         }
 
-        /* Profile Image */
         .profile-icon {
             width: 120px;
             height: 120px;
@@ -114,9 +112,8 @@
             margin: 0 auto;
         }
 
-        /* ====== التعديل هنا: الكتابة تبدأ من اليسار ====== */
         .typing {
-            border-right: 2px solid #38bdf8;  /* تغيير من border-left إلى border-right */
+            border-right: 2px solid #38bdf8;
             white-space: nowrap;
             overflow: hidden;
             width: 0;
@@ -125,8 +122,8 @@
             display: inline-block;
             color: #cbd5e1;
             font-size: 1.2rem;
-            padding-right: 5px;  /* تغيير من padding-left إلى padding-right */
-            direction: ltr;  /* إجبار النص على الاتجاه من اليسار لليمين */
+            padding-right: 5px;
+            direction: ltr;
         }
 
         @keyframes typing {
@@ -139,7 +136,6 @@
             50% { border-color: #38bdf8; }
         }
 
-        /* Stats Bar */
         .stats-bar {
             display: flex;
             justify-content: center;
@@ -241,6 +237,7 @@
             border-color: #38bdf8;
         }
 
+        /* Stagger delays */
         .skills span:nth-child(1) { animation-delay: 0.05s; }
         .skills span:nth-child(2) { animation-delay: 0.10s; }
         .skills span:nth-child(3) { animation-delay: 0.15s; }
@@ -249,6 +246,12 @@
         .skills span:nth-child(6) { animation-delay: 0.30s; }
         .skills span:nth-child(7) { animation-delay: 0.35s; }
         .skills span:nth-child(8) { animation-delay: 0.40s; }
+        .skills span:nth-child(9) { animation-delay: 0.45s; }
+        .skills span:nth-child(10) { animation-delay: 0.50s; }
+        .skills span:nth-child(11) { animation-delay: 0.55s; }
+        .skills span:nth-child(12) { animation-delay: 0.60s; }
+        .skills span:nth-child(13) { animation-delay: 0.65s; }
+        .skills span:nth-child(14) { animation-delay: 0.70s; }
 
         .skills span .badge {
             background: #38bdf8;
@@ -283,7 +286,7 @@
             border: 1px solid #334155;
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
-            animation-delay: calc(0.15s * var(--i));
+            animation-delay: calc(0.12s * var(--i));
             display: flex;
             flex-direction: column;
         }
@@ -292,6 +295,8 @@
         .project:nth-child(2) { --i: 2; }
         .project:nth-child(3) { --i: 3; }
         .project:nth-child(4) { --i: 4; }
+        .project:nth-child(5) { --i: 5; }
+        .project:nth-child(6) { --i: 6; }
 
         .project:hover {
             transform: translateY(-15px) scale(1.02);
@@ -464,14 +469,14 @@
             header h1 { font-size: 2.4rem; }
             .profile-icon { width: 90px; height: 90px; font-size: 3rem; }
             h2 { font-size: 2.2rem; }
-            .typing {
-                white-space: normal;
-                border-right: none;
-                animation: none;
+            .typing { 
+                white-space: normal; 
+                border-right: none; 
+                animation: none; 
                 width: auto;
                 display: block;
                 padding-right: 0;
-                direction: rtl;  /* على الموبايل يرجع للاتجاه الطبيعي */
+                direction: rtl;
             }
             .stats-bar { gap: 15px; }
             .stat-item { padding: 10px 20px; font-size: 0.9rem; }
@@ -486,7 +491,6 @@
             .stats-bar { flex-direction: column; align-items: center; }
         }
 
-        /* =============== SCROLLBAR =============== */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -504,207 +508,250 @@
 </head>
 <body>
 
-<!-- ========== HEADER (بعد التعديل) ========== -->
-<header>
-    <div class="header-content">
-        <div class="profile-icon">
-            <i class="fas fa-code"></i>
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="header-content">
+            <div class="profile-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>أحمد صفوت</h1>
+            <p class="subtitle">
+                <i class="fas fa-crown" style="color: #fbbf24; margin-left: 8px;"></i>
+                Java Developer | Spring Boot Specialist | Desktop &amp; Backend Applications
+            </p>
+            <div class="typing-container">
+                <p class="typing">Java • Spring Boot • PostgreSQL</p>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <i class="fas fa-code"></i>
+                    <span>Java Developer</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>10+ مشاريع</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user"></i>
+                    <span>عمل مستقل</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-rocket"></i>
+                    <span>جاهز للعمل</span>
+                </div>
+            </div>
         </div>
-        <h1>ahmed safwat</h1>
-        <p class="subtitle">
-            <i class="fas fa-crown" style="color: #fbbf24; margin-left: 8px;"></i>
-            Java Developer | Spring Boot & Microservices
+    </header>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills">
+        <h2>المهارات</h2>
+        <div class="skills">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Spring Security</span>
+            <span>Hibernate</span>
+            <span>JPA</span>
+            <span>REST APIs</span>
+            <span>PostgreSQL</span>
+            <span>MySQL</span>
+            <span>Maven</span>
+            <span>Gradle</span>
+            <span>Git</span>
+            <span>Linux</span>
+            <span>Docker</span>
+            <span>JavaFX</span>
+            <span>.. more &</span>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects">
+        <h2>المشاريع</h2>
+        <div class="projects">
+
+            <!-- Project 1: HR Salary Scale -->
+            <div class="project">
+                <div class="project-icon"><i class="fas fa-coins"></i></div>
+                <h3>HR Salary Scale</h3>
+                <p>برنامج تدرج الرواتب ومساعدة مستخدمي payroll في النظام المصري. يتيح تحميل وتحديث بيانات الرواتب بسهولة مع تقارير Jasper.</p>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>JavaFX</span>
+                   <span>Vanilla Java</span>
+                    <span>JasperReports</span>
+                    <span>MySQL</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/safwat055/HR_Salary_UPDATER/releases/download/v1.0.46/HR_Salary_Scale.zip" target="_blank">
+                        <button><i class="fas fa-download"></i> تحميل</button>
+                    </a>
+                    <a href="https://github.com/safwat055/HR_Salary_UPDATER" target="_blank">
+                        <button class="outline"><i class="fab fa-github"></i> الكود</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: HR Management System (NEW) -->
+            <div class="project">
+                <div class="project-icon"><i class="fas fa-building"></i></div>
+                <h3>HR Management System</h3>
+                <p>نظام متكامل لإدارة الموارد البشرية يشمل إدارة الموظفين، المرتبات، والتقارير. مبني بـ JavaFX مع RESTful API خلفي.</p>
+                <div class="tech-tags">
+                    <span>JavaFX</span>
+                    <span>Spring Boot</span>
+                    <span>RESTful API</span>
+                    <span>PostgreSQL</span>
+                    <span>JPA</span>
+                    <span>JasperReports</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/safwat055/hr-management-system" target="_blank">
+                        <button><i class="fab fa-github"></i> عرض المشروع</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: Exam Control (NEW - Client Project) -->
+            <div class="project">
+                <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Exam Control</h3>
+                <p>نظام إدارة الامتحانات والطلاب تم تطويره لعميل، يشمل إدارة المواد، غياب وحضور، والنتائج مع لوحة تحكم متقدمة.</p>
+                <div class="tech-tags">
+                    <span>Vanilla Java</span>
+                    <span>JavaFx</span>
+                    <span>MySQL</span>
+                    <span>JasperReports</span>
+                   
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/safwat055/exam-control" target="_blank">
+                        <button><i class="fab fa-github"></i> عرض المشروع</button>
+                    </a>
+                    <button class="outline" style="cursor: default; opacity: 0.7;">
+                        <i class="fas fa-lock"></i> مشروع عميل
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project 4: Archive Manager -->
+            <div class="project">
+                <div class="project-icon"><i class="fas fa-archive"></i></div>
+                <h3>Archive Manager</h3>
+                <p>نظام لإدارة وحفظ الملفات والأرشيفات الرقمية، مع دعم البحث والتصنيف والاسترجاع السريع باستخدام Microservices.</p>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>JavaFX</span>
+                    <span>Spring Boot</span>
+                    <span>Microservices</span>
+                   
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/safwat055/archive-manager" target="_blank">
+                        <button><i class="fab fa-github"></i> عرض المشروع</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 5: YouTube Tutorials -->
+            <div class="project">
+                <div class="project-icon"><i class="fab fa-youtube"></i></div>
+                <h3>شروحات التطبيق</h3>
+                <p>قائمة فيديوهات شرح لكيفية استخدام تطبيق HR Salary Scale بالتفصيل، من التثبيت حتى الاحتراف.</p>
+                <div class="tech-tags">
+                    <span>شرح عربي</span>
+                    <span>تطبيق عملي</span>
+                    <span>مشروع واقعي</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://www.youtube.com/watch?v=qdIyvBPesjg&list=PLBpXZP4NJWAbM39RvKzddVfV42SCpTOt5" target="_blank">
+                        <button><i class="fab fa-youtube"></i> مشاهدة القائمة</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 6: Blog API -->
+            <div class="project">
+                <div class="project-icon"><i class="fas fa-blog"></i></div>
+                <h3>Blog API</h3>
+                <p>نظام خلفي لمنصة تدوين مع إدارة المستخدمين والمقالات والتعليقات، مبني باستخدام Spring Boot و JWT.</p>
+                <div class="tech-tags">
+                    <span>Spring Boot</span>
+                    <span>JWT</span>
+                    <span>REST API</span>
+                    <span>MySQL</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/safwat055/blog-api" target="_blank">
+                        <button><i class="fab fa-github"></i> عرض المشروع</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+        <h2>تواصل معي</h2>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:ahmed.safwat444@gmail.com">ahmed.safwat444@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/safwat055" target="_blank">safwat055</a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+201021816864">+20 102 181 6864</a>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/201021816864" target="_blank">واتساب</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>
+            © 2026 أحمد صفوت 
+            <span class="heart"><i class="fas fa-heart"></i></span> 
+            Java Developer | Spring Boot &amp; Backend Applications
         </p>
-        <div class="typing-container">
-            <p class="typing">Free Systems Spring Boot</p>
-        </div>
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
+            <i class="fas fa-code"></i> بناء أنظمة قابلة للتطوير
+        </p>
+    </footer>
 
-        <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stat-item">
-                <i class="fas fa-briefcase"></i>
-                <span>+5 سنوات خبرة</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-project-diagram"></i>
-                <span>10+ مشاريع</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-users"></i>
-                <span>عمل مستقل</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-rocket"></i>
-                <span>جاهز للعمل</span>
-            </div>
-        </div>
-    </div>
-</header>
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-<!-- ========== SKILLS ========== -->
-<section id="skills">
-    <h2>المهارات</h2>
-    <div class="skills">
-        <span>Java</span>
-        <span>Java FX</span>
-        <span>Spring Boot</span>
-        <span>Microservices </span>
-        <span>REST APIs</span>
-        <span>JasperReports </span>
-        <span>MySQL</span>
-        <span>PostgresSQL</span>
-        <span>JWT Authentication</span>
-        <span>Docker</span>
-    </div>
-</section>
-
-<!-- ========== PROJECTS ========== -->
-<section id="projects">
-    <h2>المشاريع</h2>
-    <div class="projects">
-
-        <!-- Project 1: HR Salary Scale -->
-        <div class="project">
-            <div class="project-icon"><i class="fas fa-coins"></i></div>
-            <h3>HR Salary Scale</h3>
-            <p>برنامج تدرج الرواتب ومساعدة مستخدمي payroll في النظام المصري. يتيح تحميل وتحديث بيانات الرواتب بسهولة.</p>
-            <div class="tech-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>JasperReports</span>
-                <span>MySQL</span>
-            </div>
-            <div class="project-buttons">
-                <a href="https://github.com/safwat055/HR_Salary_UPDATER/releases/download/v1.0.46/HR_Salary_Scale.zip" target="_blank">
-                    <button><i class="fas fa-download"></i> تحميل</button>
-                </a>
-                <a href="https://github.com/safwat055/HR_Salary_UPDATER" target="_blank">
-                    <button class="outline"><i class="fab fa-github"></i> الكود</button>
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 2: Archive Manager (NEW) -->
-        <div class="project">
-            <div class="project-icon"><i class="fas fa-archive"></i></div>
-            <h3>Archive Manager</h3>
-            <p>نظام متكامل لإدارة وحفظ الملفات والأرشيفات الرقمية، مع دعم البحث والتصنيف والاسترجاع السريع.</p>
-            <div class="tech-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>Microservices</span>
-                <span>Docker</span>
-                <span>PostgresSQL</span>
-            </div>
-            <div class="project-buttons">
-                <a href="https://github.com/safwat055/archive-manager" target="_blank">
-                    <button><i class="fab fa-github"></i> عرض المشروع</button>
-                </a>
-                <a href="#" target="_blank">
-                    <button class="outline"><i class="fas fa-play"></i>تحميل</button>
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 3: YouTube Tutorials -->
-        <div class="project">
-            <div class="project-icon"><i class="fab fa-youtube"></i></div>
-            <h3>شروحات التطبيق</h3>
-            <p>قائمة فيديوهات شرح لكيفية استخدام تطبيق HR Salary Scale بالتفصيل، من التثبيت حتى الاحتراف.</p>
-            <div class="tech-tags">
-                <span>شرح عربي</span>
-                <span>تطبيق عملي</span>
-                <span>حالات واقعية</span>
-            </div>
-            <div class="project-buttons">
-                <a href="https://www.youtube.com/watch?v=qdIyvBPesjg&list=PLBpXZP4NJWAbM39RvKzddVfV42SCpTOt5" target="_blank">
-                    <button><i class="fab fa-youtube"></i> مشاهدة القائمة</button>
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 4: Blog API -->
-        <div class="project">
-            <div class="project-icon"><i class="fas fa-blog"></i></div>
-            <h3>Blog API</h3>
-            <p>نظام خلفي لمنصة تدوين مع إدارة المستخدمين والمقالات والتعليقات، مبني باستخدام Spring Boot و JWT.</p>
-            <div class="tech-tags">
-                <span>Spring Boot</span>
-                <span>JWT</span>
-                <span>REST API</span>
-                <span>MySQL</span>
-            </div>
-            <div class="project-buttons">
-                <a href="https://github.com/safwat055/blog-api" target="_blank">
-                    <button><i class="fab fa-github"></i> عرض المشروع</button>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ========== CONTACT ========== -->
-<section id="contact">
-    <h2>تواصل معي</h2>
-    <div class="contact-cards">
-        <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:ahmed.safwat444@gmail.com">ahmed.safwat444@gmail.com</a>
-        </div>
-        <div class="contact-card">
-            <i class="fab fa-github"></i>
-            <a href="https://github.com/safwat055" target="_blank">safwat055</a>
-        </div>
-        <div class="contact-card">
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:+201021816864">+20 102 181 6864</a>
-        </div>
-        <div class="contact-card">
-            <i class="fab fa-whatsapp"></i>
-            <a href="https://wa.me/201021816864" target="_blank">واتساب</a>
-        </div>
-    </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
-<footer>
-    <p>
-        © 2026 أحمد صفوت
-        <span class="heart"><i class="fas fa-heart"></i></span>
-        Java Developer | Spring Boot &amp; Microservices
-    </p>
-    <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
-        <i class="fas fa-code"></i> بناء أنظمة قابلة للتطوير
-    </p>
-</footer>
-
-<!-- ========== JAVASCRIPT ========== -->
-<script>
-    // Scroll Animations
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Trigger visibility for sections already in view on load
-    window.addEventListener('load', () => {
         sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                section.classList.add('visible');
-            }
+            observer.observe(section);
         });
-    });
-</script>
+
+        window.addEventListener('load', () => {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
